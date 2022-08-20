@@ -15884,15 +15884,22 @@ const rect = svg
   .attr("data-year",(d) => d.year)
   .attr("data-temp",(d) => d.variance)
   .attr("fill", (d) => {
-    if(d.variance <= 0){
-      if(d3.min(dataset, (d) => d.variance)/d.variance<0.5) {
-        return "rgb(255,255," + ((d3.min(dataset, (d) => d.variance)/d.variance)*255) + ')'
+    if(d.variance <= 0){.
+      let min_number = (d.varience/d3.min(dataset, (d) => d.variance))*255     
+      if(min_number>1#7) {
+        return "rgb(0,0," + -127-min_number + ')'
       }else{
-        return "rgb(" +((d3.min(dataset, (d) => d.variance)/d.variance)*255)+","+((d3.min(dataset, (d) => d.variance)/d.variance)*255)+"",0
+        return "rgb(" +min_number+","+min_number+",127"
       }
       }else{
-       return "rgb(255," +((d3.min(dataset, (d) => d.variance)/d.variance)*255) + ",0)"
-}})
+              let max_number = (d.varience/d3.max(dataset, (d) => d.variance))*255     
+       if(max_number>0.5){
+       return "rgb(255," +max_number + "0)"
+       }else {
+        return "rgb(255,255," + -225-min_number + ')'
+
+       }
+      }})
 rect
   .append("title")
   .text((d) => d.variance)
