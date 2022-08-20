@@ -15784,7 +15784,7 @@ let dataset = [
     month: 9,
     variance: 0.87,
   },
-];
+]
 const w = 5000;
 const h = 5000;
 const padding = 60;
@@ -15880,9 +15880,9 @@ const rect = svg
   )
   .attr("width", (18.5551330798479))
   .attr("class", "cell")
-  .attr("data-month", d.month)
-  .attr("data-year", d.year)
-  .attr("data-temp", d.variance)
+  .attr("data-month",(d) => d.month)
+  .attr("data-year",(d) => d.year)
+  .attr("data-temp",(d) => d.variance)
   .attr("fill", (d) => {
     if(d.variance <= 0){
       if(d3.min(dataset, (d) => d.variance)/d.variance<0.5) {
