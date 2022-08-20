@@ -15886,12 +15886,12 @@ const rect = svg
   .attr("fill", (d) => {
     if(d.variance <= 0){
       if(d3.min(dataset, (d) => d.variance)/d.variance<0.5) {
-        return rgb(255,255,((d3.min(dataset, (d) => d.variance)/d.variance)*255))
+        return "rgb(255,255," + ((d3.min(dataset, (d) => d.variance)/d.variance)*255) + ')'
       }else{
-        return rgb(((d3.min(dataset, (d) => d.variance)/d.variance)*255),((d3.min(dataset, (d) => d.variance)/d.variance)*255),0)
+        return "rgb(" +((d3.min(dataset, (d) => d.variance)/d.variance)*255)+","+((d3.min(dataset, (d) => d.variance)/d.variance)*255)+"",0
       }
       }else{
-    return rgb(255,255,((d3.min(dataset, (d) => d.variance)/d.variance)*255))
+       return "rgb(255," +((d3.min(dataset, (d) => d.variance)/d.variance)*255) + ",0)"
 }})
 rect
   .append("title")
